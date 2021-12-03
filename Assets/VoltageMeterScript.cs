@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using KModkit;
-using System.Text.RegularExpressions;
-using System;
 using Newtonsoft.Json;
 
-public class VoltageMeterScript : MonoBehaviour {
-
+public class VoltageMeterScript : MonoBehaviour
+{
     public GameObject pointer;
 
     readonly private string QUERY_KEY = "volt";
@@ -27,16 +23,16 @@ public class VoltageMeterScript : MonoBehaviour {
         GetComponent<KMWidget>().OnWidgetActivate += Activate;
         GetComponent<KMBombInfo>().OnBombSolved += Solve;
         GetComponent<KMBombInfo>().OnBombExploded += Explode;
-        if (widgetId == 1)
+        if(widgetId == 1)
         {
-            chosenVoltage = UnityEngine.Random.Range(0, possibleVoltages.Length);
+            chosenVoltage = Random.Range(0, possibleVoltages.Length);
             Debug.LogFormat("[Voltage Meter] Voltage: {0}V", possibleVoltages[chosenVoltage]);
         }
     }
 
     void Activate()
     {
-        if (!solved)
+        if(!solved)
         {
             StartCoroutine(MovePointer(true));
             activated = true;
@@ -45,7 +41,7 @@ public class VoltageMeterScript : MonoBehaviour {
 
     void Solve()
     {
-        if (activated)
+        if(activated)
             StartCoroutine(MovePointer(false));
         solved = true;
         widgetIdCounter = 1;
@@ -58,7 +54,7 @@ public class VoltageMeterScript : MonoBehaviour {
 
     public string GetQueryResponse(string queryKey, string queryInfo)
     {
-        if (queryKey == QUERY_KEY)
+        if(queryKey == QUERY_KEY)
         {
             Dictionary<string, string> response = new Dictionary<string, string>
             {
@@ -73,16 +69,16 @@ public class VoltageMeterScript : MonoBehaviour {
     private IEnumerator MovePointer(bool startup)
     {
         float t = 0f;
-        while (t < 1f)
+        while(t < 1f)
         {
-            if (startup)
+            if(startup)
                 pointer.transform.localPosition = Vector3.Lerp(new Vector3(-0.0525f, -0.0123f, -0.0061f), new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f), t);
             else
                 pointer.transform.localPosition = Vector3.Lerp(new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f), new Vector3(-0.0525f, -0.0123f, -0.0061f), t);
             t += Time.deltaTime * 2f;
             yield return null;
         }
-        if (startup)
+        if(startup)
             pointer.transform.localPosition = new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f);
         else
             pointer.transform.localPosition = new Vector3(-0.0525f, -0.0123f, -0.0061f);
