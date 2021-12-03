@@ -1,16 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using KModkit;
-using System.Text.RegularExpressions;
-using System;
 using Newtonsoft.Json;
-using HarmonyLib;
 
 public class VoltageMeterScript : MonoBehaviour
 {
-
     public GameObject pointer;
 
     readonly private string QUERY_KEY = "volt";
@@ -31,7 +25,7 @@ public class VoltageMeterScript : MonoBehaviour
         GetComponent<KMBombInfo>().OnBombExploded += Explode;
         if(widgetId == 1)
         {
-            chosenVoltage = UnityEngine.Random.Range(0, possibleVoltages.Length);
+            chosenVoltage = Random.Range(0, possibleVoltages.Length);
             Debug.LogFormat("[Voltage Meter] Voltage: {0}V", possibleVoltages[chosenVoltage]);
         }
     }
