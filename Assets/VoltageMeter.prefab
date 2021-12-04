@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 4770615045053368}
   - component: {fileID: 33230300367588936}
   - component: {fileID: 23536612333979586}
+  - component: {fileID: 114750308896855260}
   m_Layer: 0
   m_Name: Cube.001
   m_TagString: Untagged
@@ -395,6 +396,7 @@ GameObject:
   - component: {fileID: 4077169072889612}
   - component: {fileID: 33677513019987332}
   - component: {fileID: 23140642635416406}
+  - component: {fileID: 114005656337834520}
   m_Layer: 0
   m_Name: SemiCylinderHollow
   m_TagString: Untagged
@@ -672,6 +674,7 @@ GameObject:
   - component: {fileID: 4552592216593710}
   - component: {fileID: 33253779191881592}
   - component: {fileID: 23960441675854508}
+  - component: {fileID: 114842991705714024}
   m_Layer: 0
   m_Name: SemiCylinderHollow.001
   m_TagString: Untagged
@@ -755,6 +758,7 @@ GameObject:
   - component: {fileID: 4202812437703784}
   - component: {fileID: 33511767725708150}
   - component: {fileID: 23514872395432214}
+  - component: {fileID: 114273118686289360}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -772,6 +776,7 @@ GameObject:
   - component: {fileID: 4439392867419310}
   - component: {fileID: 33517616717760446}
   - component: {fileID: 23937183178953464}
+  - component: {fileID: 114785550728232018}
   m_Layer: 0
   m_Name: SemiCylinder
   m_TagString: Untagged
@@ -2646,6 +2651,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114005656337834520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382795465187574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114078446342734308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2704,6 +2722,19 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927329992617088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
+--- !u!114 &114273118686289360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951045775283924}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
@@ -2891,6 +2922,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114750308896855260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238647714983348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114762427374274700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2930,6 +2974,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114785550728232018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960204387422758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114785615851032184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2956,6 +3013,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - GUI/KT 3D Text Diffuse
+--- !u!114 &114842991705714024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865219612053104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114844120013942026
 MonoBehaviour:
   m_ObjectHideFlags: 1
