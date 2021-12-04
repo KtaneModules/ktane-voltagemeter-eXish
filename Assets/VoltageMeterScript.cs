@@ -5,11 +5,15 @@ using Newtonsoft.Json;
 
 public class VoltageMeterScript : MonoBehaviour
 {
+    public GameObject squareModel;
+    public GameObject circleModel;
     public GameObject pointer;
+    public GameObject circlePointer;
 
     readonly private string QUERY_KEY = "volt";
     private bool activated;
     private bool solved;
+    private bool _isCircular;
     private double[] possibleVoltages = new double[] { 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 };
     private static int chosenVoltage;
 
@@ -23,6 +27,14 @@ public class VoltageMeterScript : MonoBehaviour
         GetComponent<KMWidget>().OnWidgetActivate += Activate;
         GetComponent<KMBombInfo>().OnBombSolved += Solve;
         GetComponent<KMBombInfo>().OnBombExploded += Explode;
+
+        _isCircular = Random.Range(0, 2) == 0;
+        Debug.LogFormat("[Voltage Meter] Is circular: {0}", _isCircular);
+        if(_isCircular)
+            squareModel.SetActive(false);
+        else
+            circleModel.SetActive(false);
+
         if(widgetId == 1)
         {
             chosenVoltage = Random.Range(0, possibleVoltages.Length);
@@ -71,16 +83,36 @@ public class VoltageMeterScript : MonoBehaviour
         float t = 0f;
         while(t < 1f)
         {
-            if(startup)
-                pointer.transform.localPosition = Vector3.Lerp(new Vector3(-0.0525f, -0.0123f, -0.0061f), new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f), t);
+            if(!_isCircular)
+            {
+                if(startup)
+                    pointer.transform.localPosition = Vector3.Lerp(new Vector3(-0.0525f, -0.0123f, -0.0061f), new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f), t);
+                else
+                    pointer.transform.localPosition = Vector3.Lerp(new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f), new Vector3(-0.0525f, -0.0123f, -0.0061f), t);
+            }
             else
-                pointer.transform.localPosition = Vector3.Lerp(new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f), new Vector3(-0.0525f, -0.0123f, -0.0061f), t);
+            {
+                if(startup)
+                    circlePointer.transform.localEulerAngles = Vector3.Lerp(new Vector3(0f, -76.5f, 0f), new Vector3(0f, ((float)possibleVoltages[chosenVoltage] - 5f) * 15.3f, 0f), t);
+                else
+                    circlePointer.transform.localEulerAngles = Vector3.Lerp(new Vector3(0f, ((float)possibleVoltages[chosenVoltage] - 5f) * 15.3f, 0f), new Vector3(0f, -76.5f, 0f), t);
+            }
             t += Time.deltaTime * 2f;
             yield return null;
         }
-        if(startup)
-            pointer.transform.localPosition = new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f);
+        if(!_isCircular)
+        {
+            if(startup)
+                pointer.transform.localPosition = new Vector3(-0.0525f + (chosenVoltage + 2) * 0.00525f, -0.0123f, -0.0061f);
+            else
+                pointer.transform.localPosition = new Vector3(-0.0525f, -0.0123f, -0.0061f);
+        }
         else
-            pointer.transform.localPosition = new Vector3(-0.0525f, -0.0123f, -0.0061f);
+        {
+            if(startup)
+                circlePointer.transform.localEulerAngles = new Vector3(0f, ((float)possibleVoltages[chosenVoltage] - 5f) * 15.3f, 0f);
+            else
+                circlePointer.transform.localEulerAngles = new Vector3(0f, -76.5f, 0f);
+        }
     }
 }
