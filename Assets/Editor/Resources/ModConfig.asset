@@ -17,14 +17,17 @@ MonoBehaviour:
   description: 'A modded widget?!? I thought those things were myths.
 
 
+    IMPORTANT: This module requires Tweaks to work properly.
+
+
     HTML: https://ktane.timwi.de/HTML/Voltage%20Meter.html
 
     PDF: https://ktane.timwi.de/PDF/Voltage%20Meter.pdf
 
 
-    Voltage Meter (voltageMeterWidget) v1.0.0
+    Voltage Meter (voltageMeterWidget) v1.0.1
 
     Widget and Concept by eXish'
-  version: 1.0.0
+  version: 1.0.1
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 394006853ea19b546b23faefb8ad4b1f, type: 3}
