@@ -25,9 +25,9 @@ MonoBehaviour:
     PDF: https://ktane.timwi.de/PDF/Voltage%20Meter.pdf
 
 
-    Voltage Meter (voltageMeterWidget) v1.0.2
+    Voltage Meter (voltageMeterWidget) v1.0.3
 
     Widget and Concept by eXish'
-  version: 1.0.2
+  version: 1.0.3
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 394006853ea19b546b23faefb8ad4b1f, type: 3}

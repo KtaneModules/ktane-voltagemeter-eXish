@@ -17,16 +17,11 @@ public class VoltageMeterScript : MonoBehaviour
     private double[] possibleVoltages = new double[] { 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 };
     private static int chosenVoltage;
 
-    static int widgetIdCounter = 1;
-    int widgetId;
-
     void Awake()
     {
-        widgetId = widgetIdCounter++;
         GetComponent<KMWidget>().OnQueryRequest += GetQueryResponse;
         GetComponent<KMWidget>().OnWidgetActivate += Activate;
         GetComponent<KMBombInfo>().OnBombSolved += Solve;
-        GetComponent<KMBombInfo>().OnBombExploded += Explode;
 
         _isCircular = Random.Range(0, 2) == 0;
         Debug.LogFormat("[Voltage Meter] Is circular: {0}", _isCircular);
@@ -35,11 +30,8 @@ public class VoltageMeterScript : MonoBehaviour
         else
             circleModel.SetActive(false);
 
-        if(widgetId == 1)
-        {
-            chosenVoltage = Random.Range(0, possibleVoltages.Length);
-            Debug.LogFormat("[Voltage Meter] Voltage: {0}V", possibleVoltages[chosenVoltage]);
-        }
+        chosenVoltage = Random.Range(0, possibleVoltages.Length);
+        Debug.LogFormat("[Voltage Meter] Voltage: {0}V", possibleVoltages[chosenVoltage]);
     }
 
     void Activate()
@@ -56,12 +48,6 @@ public class VoltageMeterScript : MonoBehaviour
         if(activated)
             StartCoroutine(MovePointer(false));
         solved = true;
-        widgetIdCounter = 1;
-    }
-
-    void Explode()
-    {
-        widgetIdCounter = 1;
     }
 
     public string GetQueryResponse(string queryKey, string queryInfo)
